@@ -22,8 +22,11 @@ public class MainActivity extends AppCompatActivity {
         List<Contact> contactList = getContacts();
         ContactsAdapter contactsAdapter = new ContactsAdapter(contactList);
         recyclerView.setAdapter(contactsAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        linearLayoutManager.scrollToPosition(0);
+        recyclerView.setLayoutManager(linearLayoutManager);
         //decorators
         RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST);
         recyclerView.addItemDecoration(itemDecoration);
