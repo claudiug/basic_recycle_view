@@ -1,11 +1,14 @@
 package pro.outbox.claudiug.de.myapplication;
 
 
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.BounceInterpolator;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -39,6 +42,12 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
         textView.setText(contact.getName());
 
         Button button = holder.button;
+        ObjectAnimator animator = ObjectAnimator.ofFloat(button, View.ALPHA, 0, 3);
+        animator.start();
+        animator.setDuration(3000);
+        animator.setRepeatCount(ValueAnimator.INFINITE);
+        animator.setRepeatMode(ValueAnimator.REVERSE);
+        animator.setInterpolator(new BounceInterpolator());
 
         if (contact.getOnline()) {
             button.setText("Message");
