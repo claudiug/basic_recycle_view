@@ -43,7 +43,7 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
         if (contact.getOnline()) {
             button.setText("Message");
             button.setEnabled(true);
-        } else{
+        } else {
             button.setText("Offline");
             button.setEnabled(false);
         }

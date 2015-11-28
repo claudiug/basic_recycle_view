@@ -1,5 +1,6 @@
 package pro.outbox.claudiug.de.myapplication;
 
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -18,11 +19,37 @@ public class MainActivity extends AppCompatActivity {
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rv);
 
-        List<Contact> contactList = new ArrayList<>();
-        contactList.add(new Contact("claudiu", false));
-        contactList.add(new Contact("raluca", true));
+        List<Contact> contactList = getContacts();
         ContactsAdapter contactsAdapter = new ContactsAdapter(contactList);
         recyclerView.setAdapter(contactsAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        //decorators
+        RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST);
+        recyclerView.addItemDecoration(itemDecoration);
+
+
+    }
+
+    @NonNull
+    private List<Contact> getContacts() {
+        List<Contact> contactList = new ArrayList<>();
+        contactList.add(new Contact("claudiu", false));
+        contactList.add(new Contact("raluca", true));
+        contactList.add(new Contact("claudiu", false));
+        contactList.add(new Contact("raluca", true));
+        contactList.add(new Contact("claudiu", false));
+        contactList.add(new Contact("raluca", true));
+        contactList.add(new Contact("claudiu", false));
+        contactList.add(new Contact("raluca", true));
+        contactList.add(new Contact("claudiu", false));
+        contactList.add(new Contact("raluca", true));
+        contactList.add(new Contact("claudiu", false));
+        contactList.add(new Contact("raluca", true));
+        contactList.add(new Contact("claudiu", false));
+        contactList.add(new Contact("raluca", true));
+        contactList.add(new Contact("claudiu", false));
+        contactList.add(new Contact("raluca", true));
+        return contactList;
     }
 }
